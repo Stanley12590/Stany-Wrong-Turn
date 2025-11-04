@@ -4,7 +4,6 @@ const __path = process.cwd();
 const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 8000;
 
-// Fix: Check if files exist before requiring
 let server, code;
 try {
     server = require('./qr');
@@ -27,6 +26,9 @@ require('events').EventEmitter.defaultMaxListeners = 500;
 app.use('/qr', server);
 app.use('/code', code);
 
+// Serve static files
+app.use(express.static(__path));
+
 // HTML Routes
 app.use('/pair', (req, res) => {
     res.sendFile(__path + '/pair.html');
@@ -34,6 +36,10 @@ app.use('/pair', (req, res) => {
 
 app.use('/', (req, res) => {
     res.sendFile(__path + '/main.html');
+});
+
+app.use('/qr-page', (req, res) => {
+    res.sendFile(__path + '/qr.html');
 });
 
 app.use(bodyParser.json());
