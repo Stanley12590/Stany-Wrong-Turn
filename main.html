@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Benz Technologies - Enterprise Session Management Platform">
-  <link rel="shortcut icon" href="https://files.catbox.moe/39z8jd.jpg" type="image/x-icon">
+  <meta name="description" content="Stany Technologies - Secure WhatsApp Session Pairing Platform">
+  <link rel="shortcut icon" href="https://files.catbox.moe/23j7tl.jpg" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <title>Benz Technologies | Secure Session Management</title>
+  <title>Stany Technologies | WhatsApp Session Pairing</title>
   <style>
     :root {
-      --navy-primary: #0a1428;
-      --navy-secondary: #0f1c38;
-      --navy-tertiary: #14264a;
-      --accent-blue: #5ce1e6;
-      --accent-blue-hover: #7ef0f5;
-      --text-primary: #e6f0ff;
-      --text-secondary: #a3b3cc;
-      --card-bg: rgba(20, 35, 60, 0.7);
-      --shadow-color: rgba(10, 25, 47, 0.8);
-      --transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+      --navy-primary: #0b101f;
+      --navy-secondary: #0d152a;
+      --navy-tertiary: #101a36;
+      --accent-blue: #4fd0ff;
+      --accent-blue-hover: #7effff;
+      --text-primary: #f0f8ff;
+      --text-secondary: #adb7c9;
+      --card-bg: rgba(13, 21, 42, 0.85);
+      --shadow-color: rgba(0, 0, 0, 0.7);
+      --transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
     }
 
     * {
@@ -29,9 +29,9 @@
 
     body {
       background: var(--navy-primary);
-      background-image: 
-        radial-gradient(circle at 10% 20%, rgba(92, 225, 230, 0.08) 0%, transparent 25%),
-        radial-gradient(circle at 90% 80%, rgba(92, 225, 230, 0.08) 0%, transparent 25%);
+      background-image:
+        radial-gradient(circle at 15% 30%, rgba(79, 208, 255, 0.12) 0%, transparent 30%),
+        radial-gradient(circle at 85% 70%, rgba(79, 208, 255, 0.12) 0%, transparent 30%);
       color: var(--text-primary);
       min-height: 100vh;
       padding: 20px;
@@ -40,186 +40,167 @@
     }
 
     .container {
-      max-width: 700px;
+      max-width: 750px;
       width: 100%;
       margin: 0 auto;
     }
 
     header {
       text-align: center;
-      padding: 30px 0;
-      margin-bottom: 20px;
+      padding: 35px 0 25px;
+      margin-bottom: 25px;
     }
 
     .logo-container {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 25px;
+      gap: 22px;
     }
 
     .profile-img {
-      width: 140px;
-      height: 140px;
+      width: 130px;
+      height: 130px;
       border-radius: 50%;
       object-fit: cover;
-      border: 2px solid var(--accent-blue);
-      box-shadow: 0 0 0 4px rgba(92, 225, 230, 0.15);
+      border: 3px solid var(--accent-blue);
+      box-shadow: 0 0 0 4px rgba(79, 208, 255, 0.2);
       transition: var(--transition);
       background: linear-gradient(135deg, var(--navy-secondary), var(--navy-tertiary));
-      padding: 4px;
     }
 
     .profile-img:hover {
-      transform: scale(1.04);
-      box-shadow: 0 0 0 4px rgba(92, 225, 230, 0.35);
+      transform: scale(1.05);
+      box-shadow: 0 0 0 6px rgba(79, 208, 255, 0.4);
     }
 
     .logo {
-      font-size: 2.4rem;
+      font-size: 2.6rem;
       font-weight: 800;
-      background: linear-gradient(90deg, var(--accent-blue), #88c9f0);
+      background: linear-gradient(90deg, var(--accent-blue), #7effff);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      letter-spacing: 1px;
-      text-shadow: 0 2px 10px rgba(92, 225, 230, 0.1);
+      letter-spacing: 1.2px;
+      text-shadow: 0 2px 12px rgba(79, 208, 255, 0.15);
     }
 
     .tagline {
       color: var(--text-secondary);
-      font-size: 1.15rem;
-      max-width: 500px;
+      font-size: 1.2rem;
+      max-width: 580px;
       margin: 0 auto 35px;
       line-height: 1.7;
       text-align: center;
       padding: 0 15px;
+      font-weight: 500;
     }
 
     .section {
       background: var(--navy-secondary);
-      border-radius: 16px;
-      padding: 25px;
-      margin-bottom: 30px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-      border: 1px solid rgba(92, 225, 230, 0.08);
-      backdrop-filter: blur(10px);
+      border-radius: 18px;
+      padding: 28px;
+      margin-bottom: 32px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(79, 208, 255, 0.12);
+      backdrop-filter: blur(12px);
       transition: var(--transition);
     }
 
     .section:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.3);
-      border-color: rgba(92, 225, 230, 0.15);
+      transform: translateY(-4px);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.4);
+      border-color: rgba(79, 208, 255, 0.25);
     }
 
     .section-title {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
       color: var(--accent-blue);
-      font-size: 1.4rem;
-      margin-bottom: 22px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid rgba(92, 225, 230, 0.15);
-    }
-
-    .section-title i {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
+      margin-bottom: 24px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(79, 208, 255, 0.2);
     }
 
     .button-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 18px;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
     }
 
     .social-button {
       position: relative;
       display: flex;
       align-items: center;
-      gap: 14px;
-      padding: 18px 22px;
+      gap: 16px;
+      padding: 20px;
       background: var(--navy-tertiary);
-      border-radius: 12px;
+      border-radius: 14px;
       color: var(--text-primary);
       text-decoration: none;
       font-weight: 600;
-      font-size: 1.05rem;
-      letter-spacing: 0.3px;
+      font-size: 1.08rem;
+      letter-spacing: 0.4px;
       transition: var(--transition);
-      border: 1px solid rgba(92, 225, 230, 0.1);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      border: 1px solid rgba(79, 208, 255, 0.15);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
       text-align: left;
     }
 
     .social-button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 7px 18px rgba(0, 0, 0, 0.25);
-      border-color: rgba(92, 225, 230, 0.3);
-      background: linear-gradient(135deg, rgba(15, 28, 56, 0.9), rgba(20, 38, 74, 0.9));
-    }
-
-    .social-button:active {
-      transform: translateY(-1px);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+      background: linear-gradient(135deg, rgba(13, 21, 42, 0.95), rgba(16, 26, 54, 0.95));
     }
 
     .social-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       flex-shrink: 0;
     }
 
-    .github .social-icon {
-      background: #1a1f2d;
-      color: #c9d1d9;
-    }
-
-    .whatsapp .social-icon {
-      background: #128C7E;
-      color: white;
-    }
-
-    .telegram .social-icon {
-      background: #0088cc;
-      color: white;
-    }
+    .github .social-icon { background: #1c2133; color: #f0f6fc; }
+    .whatsapp .social-icon { background: #128C7E; color: white; }
+    .telegram .social-icon { background: #0088cc; color: white; }
 
     .platform-name {
-      font-weight: 600;
-      margin-bottom: 4px;
+      font-weight: 700;
+      margin-bottom: 5px;
+      font-size: 1.1rem;
     }
 
     .platform-description {
-      font-size: 0.88rem;
+      font-size: 0.92rem;
       color: var(--text-secondary);
       line-height: 1.5;
     }
 
     footer {
       text-align: center;
-      padding: 30px 0 20px;
+      padding: 35px 0 25px;
       color: var(--text-secondary);
-      font-size: 0.95rem;
-      margin-top: 10px;
+      font-size: 0.98rem;
+      margin-top: 15px;
     }
 
     .copyright {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 14px;
       align-items: center;
     }
 
     .footer-links {
       display: flex;
-      gap: 18px;
-      margin-top: 15px;
+      gap: 22px;
+      margin-top: 18px;
       flex-wrap: wrap;
       justify-content: center;
     }
@@ -227,45 +208,58 @@
     .footer-link {
       color: var(--text-secondary);
       text-decoration: none;
-      transition: color 0.3s ease;
+      transition: color 0.35s ease;
       display: flex;
       align-items: center;
-      gap: 6px;
-      font-size: 0.95rem;
+      gap: 7px;
+      font-size: 1rem;
     }
 
     .footer-link:hover {
       color: var(--accent-blue);
     }
 
+    .policy-section {
+      background: var(--navy-secondary);
+      border-radius: 16px;
+      padding: 28px;
+      margin: 25px 0;
+      border: 1px solid rgba(79, 208, 255, 0.1);
+    }
+
+    .policy-section h3 {
+      color: var(--accent-blue);
+      margin-bottom: 15px;
+      font-size: 1.35rem;
+    }
+
+    .policy-section p {
+      margin-bottom: 12px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
     .schema-badge {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      background: rgba(92, 225, 230, 0.1);
+      gap: 8px;
+      background: rgba(79, 208, 255, 0.12);
       color: var(--accent-blue);
-      padding: 4px 10px;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      margin-top: 8px;
+      padding: 6px 14px;
+      border-radius: 22px;
+      font-size: 0.85rem;
+      margin-top: 10px;
+      font-weight: 600;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 620px) {
       .button-grid {
         grid-template-columns: 1fr;
       }
-      
-      .logo {
-        font-size: 2rem;
-      }
-      
-      .section {
-        padding: 20px 18px;
-      }
-      
-      .social-button {
-        padding: 16px 20px;
-      }
+      .logo { font-size: 2.2rem; }
+      .section { padding: 22px 20px; }
+      .social-button { padding: 18px; }
+      .footer-links { gap: 14px; flex-direction: column; }
     }
   </style>
 </head>
@@ -274,108 +268,100 @@
     <header>
       <div class="logo-container">
         <img src="https://files.catbox.moe/23j7tl.jpg" alt="Stany Technologies Logo" class="profile-img">
-        <h1 class="logo">STANY MEGA RETURNS</h1>
+        <h1 class="logo">STANY TECHNOLOGIES</h1>
       </div>
-      <p class="tagline">STANY WRONG TURN 6 PARING SYSTEM</p>
+      <p class="tagline">Secure WhatsApp Session Pairing • Powered by STANY MEGA RETURNS</p>
     </header>
 
     <main>
       <section class="section">
-        <h2 class="section-title"><i class="fas fa-cube"></i> Core Services</h2>
+        <h2 class="section-title"><i class="fas fa-link"></i> Pair Your WhatsApp</h2>
         <div class="button-grid">
           <a href="/qr" class="social-button">
-            <div class="social-icon" style="background: linear-gradient(135deg, #4a6cf7, #2a4bd7);">
+            <div class="social-icon" style="background: linear-gradient(135deg, #3a86ff, #005eff);">
               <i class="fas fa-qrcode"></i>
             </div>
             <div>
               <div class="platform-name">PAIR WITH QR CODE</div>
-              <div class="platform-description">Generate secure session QR codes</div>
+              <div class="platform-description">Scan to link your device securely</div>
             </div>
           </a>
           
           <a href="/pair" class="social-button">
-            <div class="social-icon" style="background: linear-gradient(135deg, #ff6b6b, #e55039);">
-              <i class="fas fa-link"></i>
+            <div class="social-icon" style="background: linear-gradient(135deg, #ff4d6d, #ff2e4f);">
+              <i class="fas fa-mobile-alt"></i>
             </div>
             <div>
               <div class="platform-name">PAIR WITH PHONE</div>
-              <div class="platform-description">Generate secure session with Phone Number</div>
+              <div class="platform-description">Link via phone number verification</div>
             </div>
           </a>
         </div>
       </section>
 
       <section class="section">
-        <h2 class="section-title"><i class="fas fa-users"></i> OUR SOCIAL LINKS</h2>
+        <h2 class="section-title"><i class="fas fa-rocket"></i> Official Channels</h2>
         <div class="button-grid">
           <a href="https://github.com/Stanley12590/STANY_WRONG_TURN_6/fork" class="social-button github" target="_blank">
-            <div class="social-icon">
-              <i class="fab fa-github"></i>
-            </div>
+            <div class="social-icon"><i class="fab fa-github"></i></div>
             <div>
               <div class="platform-name">GitHub Repository</div>
-              <div class="platform-description">Fork our open source project and contribute to the community</div>
-            </div>
-          </a>
-          
-          <a href="https://whatsapp.com/channel/0029VbBy4ON0wajpzLTzom35" class="social-button whatsapp" target="_blank">
-            <div class="social-icon">
-              <i class="fab fa-whatsapp"></i>
-            </div>
-            <div>
-              <div class="platform-name">STANY PROGRAMMING HUB</div>
-              <div class="platform-description">OUR BOT OFFICIAL WHATSAPP CHANNEL</div>
+              <div class="platform-description">Fork & contribute to our open-source project</div>
             </div>
           </a>
           
           <a href="https://whatsapp.com/channel/0029Vb72cVkJ3jv10gzqTn18" class="social-button whatsapp" target="_blank">
-            <div class="social-icon">
-              <i class="fab fa-whatsapp"></i>
-            </div>
+            <div class="social-icon"><i class="fab fa-whatsapp"></i></div>
             <div>
-              <div class="platform-name">STANY PROGRAMING HUB2</div>
-              <div class="platform-description">FOLLOW OUR 2ND WHATSAPP CHANNEL FOR TECH UPDATES</div>
+              <div class="platform-name">Programming Hubs 2</div>
+              <div class="platform-description">Free VIP courses: Python, C++, HTML, PHP, Bash, CSS</div>
             </div>
           </a>
           
           <a href="https://whatsapp.com/channel/0029VbBnoamIHphCnwau5Z3E" class="social-button whatsapp" target="_blank">
-            <div class="social-icon">
-              <i class="fab fa-whatsapp"></i>
-            </div>
+            <div class="social-icon"><i class="fab fa-whatsapp"></i></div>
             <div>
-              <div class="platform-name">STANY AVIATOR NATION</div>
-              <div class="platform-description">FOLLOW OUR 3RD WHATSAPP CHANNEL FOR CASINO,PREDICTION,MODED APK AND BETTING UPDATES</div>
+              <div class="platform-name">Stany Aviator Nation</div>
+              <div class="platform-description">Signals, prediction tools, betting tips (80–90% accuracy)</div>
             </div>
           </a>
           
           <a href="https://t.me/StanyModz" class="social-button telegram" target="_blank">
-            <div class="social-icon">
-              <i class="fab fa-telegram"></i>
-            </div>
+            <div class="social-icon"><i class="fab fa-telegram"></i></div>
             <div>
-              <div class="platform-name">TELEGRAM CHANNEL</div>
-              <div class="platform-description">Get premium modz apk and get expert assistance from our team</div>
+              <div class="platform-name">Telegram Channel</div>
+              <div class="platform-description">Premium modded APKs & expert support</div>
             </div>
           </a>
         </div>
+      </section>
+
+      <section class="policy-section">
+        <h3><i class="fas fa-exclamation-circle"></i> Terms of Service & WhatsApp Policy</h3>
+        <p>⚠️ By using this service, you agree to the following:</p>
+        <p>• This platform is for educational and automation purposes only.</p>
+        <p>• You must comply with <a href="https://www.whatsapp.com/legal/terms-of-service" target="_blank" style="color: var(--accent-blue);">WhatsApp's Terms of Service</a>.</p>
+        <p>• Automated or bulk messaging may result in your account being banned by WhatsApp.</p>
+        <p>• Stany Technologies is not affiliated with WhatsApp Inc. or Meta Platforms.</p>
+        <p>• Use of this service is at your own risk.</p>
       </section>
     </main>
 
     <footer>
       <div class="copyright">
-        <span>StanyTz&copy; <span id="currentYear"></span> | Secure Session Management Platform</span>
+        <span>Stany Technologies © <span id="currentYear"></span> | All Rights Reserved</span>
         <div class="schema-badge">
-          <i class="fas fa-shield-alt"></i> Schema.org Structured Data Implemented
+          <i class="fas fa-code"></i> Schema.org Structured Data Enabled
         </div>
         <div class="footer-links">
           <a href="/privacy" class="footer-link" target="_blank">
-            <i class="fas fa-file-contract"></i> Privacy Policy
+            <i class="fas fa-file-shield"></i> Privacy Policy
           </a>
           <a href="/terms" class="footer-link" target="_blank">
-            <i class="fas fa-balance-scale"></i> Terms of Service
+            <i class="fas fa-gavel"></i> Full Terms of Service
           </a>
-          <a href="IceFlowSolutions@proton.me" class="footer-link">
-            <i class="fas fa-envelope"></i> Contact Us
+          <a href="mailto:IceFlowSolutions@proton.me" class="footer-link">
+            <i class="fas fa-envelope"></i> Contact Support
           </a>
         </div>
       </div>
@@ -386,43 +372,38 @@
   {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Benz Technologies",
-    "url": "https://chat.whatsapp.com/KfuN5lbHkxfHvgcQS94AWY?mode=ac_t",
+    "name": "Stany Technologies",
+    "url": "https://your-stany-domain.com",
     "logo": "https://files.catbox.moe/23j7tl.jpg",
-    "description": "Enterprise session ID generator with military-grade security protocols",
+    "description": "Secure WhatsApp session pairing platform for developers and automation enthusiasts",
     "foundingYear": "2023",
     "contactPoint": {
       "@type": "ContactPoint",
       "email": "IceFlowSolutions@proton.me",
-      "contactType": "customer service"
+      "contactType": "technical support"
     },
     "sameAs": [
-      "https://github.com/JadenAfrix1/Benz-Session-Pair",
-      "https://t.me/SecUnitDevs",
-      "https://whatsapp.com/channel/0029VajbiIfAjPXO45zG2i2c",
-      "https://whatsapp.com/channel/0029Vb6K4nw96H4LOMaOLF22"
+      "https://github.com/Stanley12590",
+      "https://t.me/StanyModz",
+      "https://whatsapp.com/channel/0029Vb72cVkJ3jv10gzqTn18",
+      "https://whatsapp.com/channel/0029VbBnoamIHphCnwau5Z3E"
     ]
   }
   </script>
 
   <script>
-    // Set current year in footer
     document.getElementById('currentYear').textContent = new Date().getFullYear();
     
-    // Add subtle animation to buttons when they come into view
     document.addEventListener('DOMContentLoaded', function() {
-      const sections = document.querySelectorAll('.section');
-      sections.forEach((section, index) => {
+      const sections = document.querySelectorAll('.section, .policy-section');
+      sections.forEach((el, i) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(25px)';
         setTimeout(() => {
-          section.style.opacity = '0';
-          section.style.transform = 'translateY(20px)';
-          
-          setTimeout(() => {
-            section.style.opacity = '1';
-            section.style.transform = 'translateY(0)';
-            section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-          }, 100);
-        }, 200 * index);
+          el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+        }, 300 + i * 150);
       });
     });
   </script>
