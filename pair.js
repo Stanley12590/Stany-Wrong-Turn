@@ -45,6 +45,20 @@ if (fs.existsSync('./auth_info_baileys')) {
 router.get('/', async (req, res) => {
     let num = req.query.number;
 
+    // Validate phone number
+    if (!num) {
+        return res.status(400).json({ 
+            status: 'error', 
+            message: 'Phone number is required' 
+        });
+    }
+
+    // Clean phone number
+    num = num.replace(/[^0-9]/g, '');
+    if (!num.startsWith('255')) {
+        num = '255' + num;
+    }
+
     async function SUHAIL() {
         const { state, saveCreds } = await useMultiFileAuthState(`./auth_info_baileys`);
         try {
@@ -60,10 +74,27 @@ router.get('/', async (req, res) => {
 
             if (!Smd.authState.creds.registered) {
                 await delay(1500);
-                num = num.replace(/[^0-9]/g, '');
-                const code = await Smd.requestPairingCode(num);
-                if (!res.headersSent) {
-                    res.send({ code });
+                
+                try {
+                    const code = await Smd.requestPairingCode(num);
+                    console.log('Pairing code generated:', code);
+                    
+                    if (!res.headersSent) {
+                        res.json({ 
+                            status: 'success', 
+                            pairingCode: code,
+                            message: 'Use this code to pair your device'
+                        });
+                    }
+                } catch (error) {
+                    console.log('Error generating pairing code:', error);
+                    if (!res.headersSent) {
+                        res.status(500).json({ 
+                            status: 'error', 
+                            message: 'Failed to generate pairing code: ' + error.message 
+                        });
+                    }
+                    return;
                 }
             }
 
@@ -116,9 +147,6 @@ router.get('/', async (req, res) => {
                             }, { quoted: msgsss });
 
                             await delay(1000);
-                            try { 
-                                await fs.emptyDirSync(__dirname + '/auth_info_baileys'); 
-                            } catch (e) { }
                         }
                     } catch (e) {
                         console.log("Error during file upload or message send: ", e);
@@ -128,6 +156,13 @@ router.get('/', async (req, res) => {
                     try {
                         await fs.emptyDirSync(__dirname + '/auth_info_baileys');
                     } catch (e) { }
+                    
+                    // Close connection
+                    setTimeout(() => {
+                        try {
+                            Smd.close();
+                        } catch (e) {}
+                    }, 3000);
                 }
 
                 if (connection === "close") {
@@ -138,33 +173,35 @@ router.get('/', async (req, res) => {
                         console.log("Connection Lost from Server!");
                     } else if (reason === DisconnectReason.restartRequired) {
                         console.log("Restart Required, Restarting...");
-                        SUHAIL().catch(err => console.log(err));
                     } else if (reason === DisconnectReason.timedOut) {
                         console.log("Connection TimedOut!");
                     } else {
                         console.log('Connection closed with bot. Please run again.');
                         console.log(reason);
-                        await delay(5000);
-                        exec('pm2 restart qasim');
                     }
+                    
+                    try {
+                        await fs.emptyDirSync(__dirname + '/auth_info_baileys');
+                    } catch (e) { }
                 }
             });
 
         } catch (err) {
             console.log("Error in SUHAIL function: ", err);
-            exec('pm2 restart qasim');
-            console.log("Service restarted due to error");
-            await SUHAIL();
             try {
                 await fs.emptyDirSync(__dirname + '/auth_info_baileys');
             } catch (e) { }
+            
             if (!res.headersSent) {
-                res.send({ code: "Try After Few Minutes" });
+                res.status(500).json({ 
+                    status: 'error', 
+                    message: 'Internal server error. Please try again.' 
+                });
             }
         }
     }
 
-    // FIXED: Remove the syntax error - call the function properly
+    // Call the function
     await SUHAIL();
 });
 
