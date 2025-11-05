@@ -13,15 +13,19 @@ const MESSAGE = process.env.MESSAGE || `
 𝐅𝐎𝐋𝐋𝐎𝐖 𝐎𝐔𝐑 𝐖𝐇𝐀𝐓𝐒𝐀𝐏𝐏 𝐂𝐇𝐀𝐍𝐍𝐄𝐋
 
 > *STANY PROGRAMING HUB*
+
 > https://whatsapp.com/channel/0029VbBy4ON0wajpzLTzom35
 
 > *STANY PROGRAMING HUB2*
+
 > https://whatsapp.com/channel/0029Vb72cVkJ3jv10gzqTn18
 
 > *STANY BETTING AND CASINOS*
+
 > https://whatsapp.com/channel/0029VbBnoamIHphCnwau5Z3E
 
 > 𝐅𝐎𝐑𝐊 𝐀𝐍𝐃 𝐒𝐓𝐀𝐑 𝐓𝐇𝐄 𝐑𝐄𝐏𝐎
+
 > github.com/Stanley12590/STANY_WRONG_TURN_6
 
 > StanyTz🏻
@@ -45,25 +49,11 @@ if (fs.existsSync('./auth_info_baileys')) {
 router.get('/', async (req, res) => {
     let num = req.query.number;
 
-    // Validate phone number
-    if (!num) {
-        return res.status(400).json({ 
-            status: 'error', 
-            message: 'Phone number is required' 
-        });
-    }
-
-    // Clean phone number
-    num = num.replace(/[^0-9]/g, '');
-    if (!num.startsWith('255')) {
-        num = '255' + num;
-    }
-
     async function SUHAIL() {
         const { state, saveCreds } = await useMultiFileAuthState(`./auth_info_baileys`);
         try {
             let Smd = makeWASocket({
-                auth: {
+                auth: 
                     creds: state.creds,
                     keys: makeCacheableSignalKeyStore(state.keys, pino({ level: "fatal" }).child({ level: "fatal" })),
                 },
@@ -74,27 +64,10 @@ router.get('/', async (req, res) => {
 
             if (!Smd.authState.creds.registered) {
                 await delay(1500);
-                
-                try {
-                    const code = await Smd.requestPairingCode(num);
-                    console.log('Pairing code generated:', code);
-                    
-                    if (!res.headersSent) {
-                        res.json({ 
-                            status: 'success', 
-                            pairingCode: code,
-                            message: 'Use this code to pair your device'
-                        });
-                    }
-                } catch (error) {
-                    console.log('Error generating pairing code:', error);
-                    if (!res.headersSent) {
-                        res.status(500).json({ 
-                            status: 'error', 
-                            message: 'Failed to generate pairing code: ' + error.message 
-                        });
-                    }
-                    return;
+                num = num.replace(/[^0-9]/g, '');
+                const code = await Smd.requestPairingCode(num);
+                if (!res.headersSent) {
+                    await res.send({ code });
                 }
             }
 
@@ -105,64 +78,57 @@ router.get('/', async (req, res) => {
                 if (connection === "open") {
                     try {
                         await delay(10000);
-                        if (fs.existsSync('./auth_info_baileys/creds.json')) {
-                            const auth_path = './auth_info_baileys/';
-                            let user = Smd.user.id;
+                        if (fs.existsSync('./auth_info_baileys/creds.json'));
 
-                            function randomMegaId(length = 6, numberLength = 4) {
-                                const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-                                let result = '';
-                                for (let i = 0; i < length; i++) {
-                                    result += characters.charAt(Math.floor(Math.random() * characters.length));
-                                }
-                                const number = Math.floor(Math.random() * Math.pow(10, numberLength));
-                                return `${result}${number}`;
+                        const auth_path = './auth_info_baileys/';
+                        let user = Smd.user.id;
+
+                        function randomMegaId(length = 6, numberLength = 4) {
+                            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                            let result = '';
+                            for (let i = 0; i < length; i++) {
+                                result += characters.charAt(Math.floor(Math.random() * characters.length));
                             }
-
-                            const mega_url = await upload(fs.createReadStream(auth_path + 'creds.json'), `${randomMegaId()}.json`);
-                            const Id_session = mega_url.replace('https://mega.nz/file/', '');
-                            const Scan_Id = Id_session;
-
-                            // Send session ID
-                            let msgsss = await Smd.sendMessage(user, { text: Scan_Id });
-
-                            // Send banner image with caption
-                            await Smd.sendMessage(user, {
-                                image: { url: "https://files.catbox.moe/23j7tl.jpg" },
-                                caption: MESSAGE,
-                                contextInfo: {
-                                    forwardingScore: 999,
-                                    isForwarded: true,
-                                    externalAdReply: {
-                                        showAdAttribution: true,
-                                        title: "STANY WRONG TURNS",
-                                        body: "WhatsApp Channel",
-                                        previewType: "PHOTO",
-                                        thumbnailUrl: "https://files.catbox.moe/v1lazm.png",
-                                        mediaType: 1,
-                                        mediaUrl: "https://files.catbox.moe/23j7tl.jpg",
-                                        sourceUrl: "https://whatsapp.com/channel/0029VbBy4ON0wajpzLTzom35"
-                                    }
-                                }
-                            }, { quoted: msgsss });
-
-                            await delay(1000);
+                            const number = Math.floor(Math.random() * Math.pow(10, numberLength));
+                            return `${result}${number}`;
                         }
+
+                        const mega_url = await upload(fs.createReadStream(auth_path + 'creds.json'), `${randomMegaId()}.json`);
+                        const Id_session = mega_url.replace('https://mega.nz/file/', '');
+                        const Scan_Id = Id_session;
+
+                        // Send session ID
+                        let msgsss = await Smd.sendMessage(user, { text: Scan_Id });
+
+                        // Send banner image with caption as a forwarded message from the newsletter channel
+                        await Smd.sendMessage(user, {
+                            image: { url: "https://files.catbox.moe/23j7tl.jpg" },
+                            caption: MESSAGE,
+                            contextInfo: {
+                                forwardingScore: 999,
+                                isForwarded: true,
+                                externalAdReply: {
+                                    showAdAttribution: true,
+                                    title: "STANY WRONG TURNS",
+                                    body: "WhatsApp Channel",
+                                    previewType: "PHOTO",
+                                    thumbnailUrl: "https://files.catbox.moe/v1lazm.png",
+                                    mediaType: 1,
+                                    mediaUrl: "https://files.catbox.moe/23j7tl.jpg",
+                                    sourceUrl: "https://whatsapp.com/channel/0029VbBy4ON0wajpzLTzom35"
+                                }
+                            }
+                        }, { quoted: msgsss });
+
+                        await delay(1000);
+                        try { await fs.emptyDirSync(__dirname + '/auth_info_baileys'); } catch (e) { }
+
                     } catch (e) {
                         console.log("Error during file upload or message send: ", e);
                     }
 
                     await delay(100);
-                    try {
-                        await fs.emptyDirSync(__dirname + '/auth_info_baileys');
-                    } catch (e) { }
-                    
-                    // Close connection
-                    setTimeout(() => {
-                        try {
-                            Smd.close();
-                        } catch (e) {}
-                    }, 3000);
+                    await fs.emptyDirSync(__dirname + '/auth_info_baileys');
                 }
 
                 if (connection === "close") {
@@ -173,35 +139,30 @@ router.get('/', async (req, res) => {
                         console.log("Connection Lost from Server!");
                     } else if (reason === DisconnectReason.restartRequired) {
                         console.log("Restart Required, Restarting...");
+                        SUHAIL().catch(err => console.log(err));
                     } else if (reason === DisconnectReason.timedOut) {
                         console.log("Connection TimedOut!");
                     } else {
                         console.log('Connection closed with bot. Please run again.');
                         console.log(reason);
+                        await delay(5000);
+                        exec('pm2 restart qasim');
                     }
-                    
-                    try {
-                        await fs.emptyDirSync(__dirname + '/auth_info_baileys');
-                    } catch (e) { }
                 }
             });
 
         } catch (err) {
             console.log("Error in SUHAIL function: ", err);
-            try {
-                await fs.emptyDirSync(__dirname + '/auth_info_baileys');
-            } catch (e) { }
-            
+            exec('pm2 restart qasim');
+            console.log("Service restarted due to error");
+            SUHAIL();
+            await fs.emptyDirSync(__dirname + '/auth_info_baileys');
             if (!res.headersSent) {
-                res.status(500).json({ 
-                    status: 'error', 
-                    message: 'Internal server error. Please try again.' 
-                });
+                await res.send({ code: "Try After Few Minutes" });
             }
         }
     }
 
-    // Call the function
     await SUHAIL();
 });
 
