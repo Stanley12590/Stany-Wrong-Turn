@@ -112,7 +112,7 @@ router.get('/', async (req, res) => {
                                     title: "STANY WRONG TURNS",
                                     body: "WhatsApp Channel",
                                     previewType: "PHOTO",
-                                    thumbnailUrl: "https://files.catbox.moe/v1lazm.png",
+                                    thumbnailUrl: "https://files.catbox.moe/23j7tI.jng",
                                     mediaType: 1,
                                     mediaUrl: "https://files.catbox.moe/23j7tl.jpg",
                                     sourceUrl: "https://whatsapp.com/channel/0029VbBy4ON0wajpzLTzom35"
