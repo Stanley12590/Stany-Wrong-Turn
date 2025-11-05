@@ -3,22 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR SCANER | BENZ TECHNOLOGIES</title>
+    <title>QR SCANNER | Stany Technologies</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="https://files.catbox.moe/39z8jd.jpg" type="image/x-icon">
     <style>
         :root {
-            --navy-primary: #0a1428;
-            --navy-secondary: #0f1c38;
-            --navy-tertiary: #14264a;
-            --accent-blue: #5ce1e6;
-            --accent-purple: #8a2be2;
-            --accent-purple-hover: #a860f1;
+            --navy-primary: #0b101f;
+            --navy-secondary: #0d152a;
+            --navy-tertiary: #101a36;
+            --accent-blue: #4fd0ff;
+            --accent-blue-hover: #7effff;
+            --accent-purple: #9d4edd;
+            --accent-purple-hover: #b164f3;
             --accent-whatsapp: #25D366;
-            --text-primary: #e6f0ff;
-            --text-secondary: #a3b3cc;
-            --transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --text-primary: #f0f8ff;
+            --text-secondary: #adb7c9;
+            --transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
         }
 
         * {
@@ -29,9 +30,9 @@
 
         body {
             background: var(--navy-primary);
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(92, 225, 230, 0.08) 0%, transparent 25%),
-                radial-gradient(circle at 90% 80%, rgba(92, 225, 230, 0.08) 0%, transparent 25%);
+            background-image:
+                radial-gradient(circle at 15% 30%, rgba(79, 208, 255, 0.12) 0%, transparent 30%),
+                radial-gradient(circle at 85% 70%, rgba(79, 208, 255, 0.12) 0%, transparent 30%);
             color: var(--text-primary);
             min-height: 100vh;
             padding: 20px;
@@ -43,7 +44,7 @@
         }
 
         .container {
-            max-width: 500px;
+            max-width: 520px;
             width: 100%;
             display: flex;
             flex-direction: column;
@@ -54,7 +55,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 20px;
+            gap: 22px;
             margin-bottom: 30px;
             width: 100%;
         }
@@ -64,44 +65,44 @@
             height: 120px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid var(--accent-blue);
-            box-shadow: 0 0 0 4px rgba(92, 225, 230, 0.15);
+            border: 3px solid var(--accent-blue);
+            box-shadow: 0 0 0 4px rgba(79, 208, 255, 0.2);
             transition: var(--transition);
             background: linear-gradient(135deg, var(--navy-secondary), var(--navy-tertiary));
-            padding: 4px;
         }
 
         .profile-img:hover {
             transform: scale(1.05);
-            box-shadow: 0 0 0 4px rgba(92, 225, 230, 0.35);
+            box-shadow: 0 0 0 6px rgba(79, 208, 255, 0.4);
         }
 
         .logo {
-            font-size: 2.1rem;
+            font-size: 2.2rem;
             font-weight: 800;
-            background: linear-gradient(90deg, var(--accent-blue), #88c9f0);
+            background: linear-gradient(90deg, var(--accent-blue), #7effff);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            letter-spacing: 1px;
-            text-shadow: 0 2px 10px rgba(92, 225, 230, 0.1);
+            letter-spacing: 1.2px;
+            text-shadow: 0 2px 12px rgba(79, 208, 255, 0.15);
         }
 
         .tagline {
             color: var(--text-secondary);
-            font-size: 1.05rem;
-            max-width: 400px;
+            font-size: 1.1rem;
+            max-width: 420px;
             text-align: center;
             padding: 0 15px;
+            line-height: 1.6;
         }
 
         .qr-container {
             background: var(--navy-secondary);
-            border-radius: 16px;
-            padding: 25px;
+            border-radius: 18px;
+            padding: 28px;
             width: 100%;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-            border: 1px solid rgba(92, 225, 230, 0.08);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(79, 208, 255, 0.12);
             backdrop-filter: blur(10px);
             transition: var(--transition);
             display: flex;
@@ -110,25 +111,26 @@
         }
 
         .qr-container:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 14px 35px rgba(0, 0, 0, 0.3);
-            border-color: rgba(92, 225, 230, 0.15);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+            border-color: rgba(79, 208, 255, 0.2);
         }
 
         .qr-title {
             color: var(--accent-blue);
-            font-size: 1.5rem;
-            font-weight: 600;
+            font-size: 1.55rem;
+            font-weight: 700;
             margin-bottom: 20px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .qr-subtitle {
             color: var(--text-secondary);
             font-size: 1.05rem;
             margin-bottom: 25px;
+            text-align: center;
         }
 
         .qr-image-container {
@@ -141,10 +143,12 @@
         #qr-image {
             width: 240px;
             height: 240px;
-            border-radius: 12px;
-            object-fit: cover;
-            border: 1px solid rgba(92, 225, 230, 0.15);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 14px;
+            object-fit: contain;
+            border: 1px solid rgba(79, 208, 255, 0.15);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+            background: white;
+            padding: 12px;
         }
 
         .timer-container {
@@ -152,22 +156,22 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 15px;
+            gap: 16px;
         }
 
         .timer-label {
             color: var(--text-secondary);
-            font-size: 0.95rem;
+            font-size: 0.98rem;
             display: flex;
             align-items: center;
             gap: 8px;
+            font-weight: 500;
         }
 
         progress {
             width: 100%;
-            height: 10px;
-            border-radius: 5px;
-            overflow: hidden;
+            height: 12px;
+            border-radius: 6px;
             -webkit-appearance: none;
             appearance: none;
             background: var(--navy-tertiary);
@@ -180,17 +184,18 @@
 
         progress::-webkit-progress-value {
             background: var(--accent-blue);
-            border-radius: 5px;
+            border-radius: 6px;
+            transition: width 1s linear;
         }
 
         .reload-button {
             width: 100%;
-            padding: 14px;
-            border-radius: 12px;
+            padding: 15px;
+            border-radius: 14px;
             border: none;
             background: linear-gradient(135deg, var(--accent-purple), var(--accent-purple-hover));
             color: white;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 1.05rem;
             letter-spacing: 0.5px;
             cursor: pointer;
@@ -200,11 +205,12 @@
             justify-content: center;
             gap: 10px;
             text-decoration: none;
+            box-shadow: 0 4px 14px rgba(157, 78, 221, 0.35);
         }
 
         .reload-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 7px 18px rgba(138, 43, 226, 0.35);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 22px rgba(157, 78, 221, 0.45);
         }
 
         .reload-button:active {
@@ -215,7 +221,7 @@
             width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 22px;
             margin-top: 25px;
         }
 
@@ -223,74 +229,60 @@
             position: relative;
             display: flex;
             align-items: center;
-            gap: 16px;
-            padding: 16px 22px;
+            gap: 18px;
+            padding: 18px;
             background: var(--navy-secondary);
-            border-radius: 14px;
+            border-radius: 16px;
             color: var(--text-primary);
             text-decoration: none;
-            font-weight: 600;
-            letter-spacing: 0.3px;
+            font-weight: 700;
+            letter-spacing: 0.4px;
             transition: var(--transition);
-            border: 1px solid rgba(92, 225, 230, 0.1);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(37, 211, 102, 0.2);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
             backdrop-filter: blur(10px);
-            transform: translateY(0);
         }
 
         .floating-button:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
             border-color: var(--accent-whatsapp);
         }
 
         .channel-icon {
-            width: 45px;
-            height: 45px;
-            border-radius: 12px;
+            width: 50px;
+            height: 50px;
+            border-radius: 14px;
             background: var(--accent-whatsapp);
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
         }
 
         .channel-icon i {
             color: white;
-            font-size: 1.5rem;
-        }
-
-        .channel-info {
-            position: relative;
-            z-index: 1;
-            text-align: left;
+            font-size: 1.6rem;
         }
 
         .channel-name {
             font-size: 1.05rem;
-            font-weight: 600;
-            margin-bottom: 3px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .channel-status {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
             display: flex;
             align-items: center;
             gap: 6px;
         }
 
-        .channel-name i {
-            color: var(--accent-whatsapp);
-            font-size: 0.8rem;
-        }
-
-        .channel-status {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
         .channel-status.active {
-            color: #5ce1e6;
+            color: var(--accent-blue);
         }
 
         .channel-status.active i {
@@ -307,35 +299,27 @@
             margin-top: 30px;
             text-align: center;
             color: var(--text-secondary);
-            font-size: 0.9rem;
+            font-size: 0.92rem;
             width: 100%;
         }
 
         .powered-by-logo {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            background: rgba(92, 225, 230, 0.1);
+            gap: 8px;
+            background: rgba(79, 208, 255, 0.12);
             color: var(--accent-blue);
-            padding: 3px 10px;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.95rem;
+            padding: 6px 14px;
+            border-radius: 22px;
+            font-weight: 700;
+            font-size: 1rem;
         }
 
         @media (max-width: 480px) {
-            .qr-container {
-                padding: 22px 20px;
-            }
-            
-            #qr-image {
-                width: 220px;
-                height: 220px;
-            }
-            
-            .qr-title {
-                font-size: 1.35rem;
-            }
+            .qr-container { padding: 24px 20px; }
+            #qr-image { width: 220px; height: 220px; }
+            .qr-title { font-size: 1.4rem; }
+            .logo { font-size: 1.95rem; }
         }
     </style>
 </head>
@@ -343,29 +327,29 @@
     <div class="container">
         <div class="profile-container">
             <img src="https://files.catbox.moe/v1lazm.png" alt="Stany Technologies Logo" class="profile-img">
-            <h1 class="logo">STANY WRONG TURN QR</h1>
-            <p class="tagline">Scan this QR code to establish a secure session connection</p>
+            <h1 class="logo">STANY TECHNOLOGIES</h1>
+            <p class="tagline">Scan this QR code to establish a secure WhatsApp session connection</p>
         </div>
         
         <div class="qr-container">
             <h2 class="qr-title"><i class="fas fa-qrcode"></i> QR Pairing</h2>
-            <p class="qr-subtitle">Scan the QR code with your WhatsApp to connect securely</p>
+            <p class="qr-subtitle">Open WhatsApp → Linked Devices → Link a Device → Scan</p>
             
             <div class="qr-image-container">
-                <img id="qr-image" src="/server" alt="QR CODE">
+                <img id="qr-image" src="" alt="QR Code" style="display:none;">
             </div>
             
             <div class="timer-container">
                 <div class="timer-label">
-                    <i class="fas fa-clock"></i> QR Code expires in:
+                    <i class="fas fa-hourglass-half"></i> QR Code expires in:
                 </div>
                 <progress value="0" max="30" id="progressBar"></progress>
-                <p id="status-message" style="color: var(--text-secondary); font-size: 0.95rem;">Scan before timer runs out</p>
+                <p id="status-message" style="color: var(--text-secondary); font-size: 0.98rem;">Loading QR code...</p>
             </div>
             
-            <a href="javascript:history.go(0)" class="reload-button">
+            <button id="reload-button" class="reload-button">
                 <i class="fas fa-sync-alt"></i> Refresh QR Code
-            </a>
+            </button>
         </div>
         
         <div class="channels-container">
@@ -374,25 +358,19 @@
                     <i class="fab fa-whatsapp"></i>
                 </div>
                 <div class="channel-info">
-                    <div class="channel-name">
-                        Technical Support
-                        <i class="fas fa-check-circle"></i>
-                    </div>
+                    <div class="channel-name">Technical Support</div>
                     <div class="channel-status active">
                         <i class="fas fa-circle"></i> Active
                     </div>
                 </div>
             </a>
             
-            <a href="https://whatsapp.com/channel/0029VbBy4ON0wajpzLTzom35" class="floating-button" target="_blank">
+            <a href="https://whatsapp.com/channel/0029Vb72cVkJ3jv10gzqTn18" class="floating-button" target="_blank">
                 <div class="channel-icon">
                     <i class="fab fa-whatsapp"></i>
                 </div>
                 <div class="channel-info">
-                    <div class="channel-name">
-                        Official Updates
-                        <i class="fas fa-check-circle"></i>
-                    </div>
+                    <div class="channel-name">Programming Hub 2</div>
                     <div class="channel-status active">
                         <i class="fas fa-circle"></i> Active
                     </div>
@@ -402,32 +380,84 @@
         
         <div class="powered-by">
             <div class="powered-by-logo">
-                <i class="fas fa-shield-alt"></i> POWERED BY STANY PROGRAMING HUB
+                <i class="fas fa-shield-alt"></i> STANY TECHNOLOGIES © 2025
             </div>
         </div>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            var timeleft = 30;
-            var downloadTimer = setInterval(function() {
-                if (timeleft <= 0) {
-                    clearInterval(downloadTimer);
-                    document.getElementById("progressBar").remove();
-                    document.getElementById("status-message").innerHTML = "QR Expired! Please refresh";
-                    document.getElementById("status-message").style.color = "#ff6b6b";
-                } else {
-                    document.getElementById("progressBar").value = 30 - timeleft;
-                    // Update progress bar color based on remaining time
-                    if (timeleft <= 10) {
-                        document.getElementById("status-message").innerHTML = "Hurry up! QR expires soon";
-                        document.querySelector('progress::-webkit-progress-value').style.background = '#ff6b6b';
-                    } else if (timeleft <= 20) {
-                        document.querySelector('progress::-webkit-progress-value').style.background = '#ffc107';
+            let timeleft = 30;
+            let downloadTimer;
+            const qrImage = document.getElementById('qr-image');
+            const progressBar = document.getElementById('progressBar');
+            const statusMessage = document.getElementById('status-message');
+            const reloadButton = document.getElementById('reload-button');
+
+            function startTimer() {
+                clearInterval(downloadTimer);
+                timeleft = 30;
+                progressBar.value = 0;
+                progressBar.style.display = "block";
+                
+                downloadTimer = setInterval(function() {
+                    if (timeleft <= 0) {
+                        clearInterval(downloadTimer);
+                        progressBar.style.display = "none";
+                        statusMessage.innerHTML = "⚠️ QR Expired! Click <strong>Refresh</strong>";
+                        statusMessage.style.color = "#ff4d6d";
+                    } else {
+                        progressBar.value = 30 - timeleft;
+                        let msg = `QR expires in ${timeleft}s`;
+                        if (timeleft <= 10) {
+                            statusMessage.innerHTML = `⚠️ ${msg}`;
+                            statusMessage.style.color = "#ff4d6d";
+                        } else if (timeleft <= 20) {
+                            statusMessage.innerHTML = `⏳ ${msg}`;
+                            statusMessage.style.color = "#ffc107";
+                        } else {
+                            statusMessage.innerHTML = `✅ ${msg}`;
+                            statusMessage.style.color = "#4fd0ff";
+                        }
                     }
+                    timeleft -= 1;
+                }, 1000);
+            }
+
+            async function loadQRCode() {
+                try {
+                    statusMessage.innerHTML = "Generating QR code...";
+                    statusMessage.style.color = "#4fd0ff";
+                    qrImage.style.display = 'none';
+                    
+                    const response = await fetch('/qr');
+                    const data = await response.json();
+                    
+                    if (data.status === 'success' && data.qr) {
+                        qrImage.src = data.qr;
+                        qrImage.style.display = 'block';
+                        statusMessage.innerHTML = "✅ Scan QR code with WhatsApp";
+                        statusMessage.style.color = "#25D366";
+                        startTimer();
+                    } else if (data.status === 'connected') {
+                        statusMessage.innerHTML = `✅ Connected! Session: ${data.session || 'Active'}`;
+                        statusMessage.style.color = "#25D366";
+                    } else {
+                        statusMessage.innerHTML = "❌ " + (data.message || 'Failed to generate QR');
+                        statusMessage.style.color = "#ff4d6d";
+                    }
+                } catch (error) {
+                    statusMessage.innerHTML = "❌ Network error. Try again.";
+                    statusMessage.style.color = "#ff4d6d";
+                    console.error('QR Error:', error);
                 }
-                timeleft -= 1;
-            }, 1000);
+            }
+
+            loadQRCode();
+
+            reloadButton.addEventListener('click', function() {
+                loadQRCode();
+            });
         });
     </script>
 </body>
